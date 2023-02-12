@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hover-icon {
+    @apply hover:text-white cursor-pointer;
+  }
+
+  .active-icon {
+    @apply text-white;
+  }
+
+  .active {
+    @apply text-teal-300;
+  }
+
+  .header-height {
+    @apply h-24;
+  }
+
+  .footer-height {
+    @apply h-32;
+  }
+}
