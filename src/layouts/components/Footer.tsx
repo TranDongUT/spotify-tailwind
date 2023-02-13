@@ -87,9 +87,7 @@ function Footer() {
   const handleChangeVolume = (volumeValue: number) => {
     setVolume(volumeValue);
     audioRef.current.volume = volume;
-    if (songSelected) {
-      audioRef.current.volume = volumeValue;
-    }
+
     if (volumeValue === 0) {
       return dispatch(toggleMute(true));
     }
@@ -107,6 +105,12 @@ function Footer() {
   const [progressValue, setProgressValue] = useState<number>(0);
 
   const [volume, setVolume] = useState<number>(0.5);
+
+  useEffect(() => {
+    if (songSelected) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
 
   const str_pad_left = (string: any, pad: any, length: any) => {
     return (new Array(length + 1).join(pad) + string).slice(-length);
